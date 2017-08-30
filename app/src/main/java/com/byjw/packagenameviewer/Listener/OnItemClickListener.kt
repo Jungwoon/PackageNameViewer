@@ -5,6 +5,6 @@ package com.byjw.packagenameviewer.Listener
  */
 interface OnItemClickListener {
 
-    fun onItemclick(position: Int)
+    fun onItemClick(position: Int)
 
 }

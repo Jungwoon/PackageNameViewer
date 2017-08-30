@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.byjw.kotlinpractice.View.MyAdapter
 import com.byjw.packagenameviewer.Presenter.MainContract
 import com.byjw.packagenameviewer.Presenter.MainPresenter
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 
 class MainActivity : AppCompatActivity(), MainContract.View {
     val TAG = "MainActivity"
@@ -22,6 +24,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         findViewById(R.id.recycler_view) as RecyclerView
     }
 
+    val adView by lazy {
+        findViewById(R.id.adView) as AdView
+    }
+
     private lateinit var mainPresenter: MainPresenter
 
     private lateinit var myAdapter: MyAdapter
@@ -32,6 +38,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
+
+        adView.loadAd(AdRequest.Builder().build())
 
         myAdapter = MyAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(this)
